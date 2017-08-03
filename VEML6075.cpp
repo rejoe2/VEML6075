@@ -117,3 +117,14 @@ void VEML6075::write16(uint8_t reg, uint16_t data) {
   Wire.write((uint8_t)(0xFF & (data >> 8))); // MSB
   Wire.endTransmission();
 }
+
+void VEML6075::sleep(bool mode) {
+
+	if (mode) 
+		this->config |= 1; // Go to sleep			
+	else 
+		this->config &= 254; // Wake up
+	
+	this->write16(VEML6075_REG_CONF, this->config);
+	
+}
