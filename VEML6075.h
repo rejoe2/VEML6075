@@ -95,7 +95,8 @@ class VEML6075 {
     uint16_t getRawIRComp();
 
     void setIntegrationTime(veml6075_int_time_t it);
-
+    void sleep(bool mode);
+  
   private:
 
     uint8_t config;
